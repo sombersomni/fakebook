@@ -1,0 +1,42 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.avatar-mid {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+.form-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#app {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100vw;
+}
+.sidebar {
+    position: absolute;
+    left: 0px;
+}
+#loginBtn {
+    margin-right: 5px;
+}
+.socialBtn {
+    border-radius: 50%;
+}
+form {
+    width: 500px;
+}
+
+h1 {
+    text-align: center;
+}

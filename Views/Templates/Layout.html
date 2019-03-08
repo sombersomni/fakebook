@@ -1,0 +1,82 @@
+$def with (page)
+$var style: static\css\main.css
+$var js: static\js\form.js
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Social Network</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="$self.style">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Social Network</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Discover</a>
+                    </li>
+                    $if session['user'] == None:
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Profile</a>
+                        </li>
+                    $else:
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings">Settings</a>
+                    </li>
+                </ul>
+            </div>
+            $if session['user'] == None:
+                <a href="/login">
+                    <button id="loginBtn" class="btn btn-sm btn-outline-secondary" type="button">Login</button>
+                </a>
+                <a href="/register">
+                    <button id="registerBtn" class="btn btn-sm btn-outline-secondary" type="button">Register</button>
+                </a>
+            $else:
+                <a href="/logout" id="logout-link">
+                    <button id="logoutBtn" class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
+                </a>
+    </nav>
+    $if session['user'] != None:
+        <ul class="nav flex-column sidebar">
+            <li class="nav-item">
+                <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home Feed</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Messages</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="fas fa-user-friends"></i> Friends</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-users"></i> Communities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fas fa-bell"></i> Notifications</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+    <div id="app">
+        $:page
+    </div>
+</body>
+<script src="$self.js"></script>
+</html>

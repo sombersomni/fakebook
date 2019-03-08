@@ -1,0 +1,43 @@
+$def with (posts)
+
+$if session['user'] != None:
+    <div class="main-container">
+        <div class="profile">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="avatar-mid">
+
+                    </div>
+                    <p class="lead">$session['user']['username']</p>
+                </div>
+            </div>
+            <div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/settings"> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                $for post in posts:
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title"> <img src="#" /> $session['user']['username']</div>
+                        <p class="card-text"> $post['body']</p>
+                        <a href="#" class="btn btn-outline-danger socialBtn"><i class="far fa-thumbs-up"></i></a>
+                        <a href="#" class="btn btn-outline-secondary socialBtn"><i class="far fa-comment-dots"></i></a>
+                        <a href="#" class="btn btn-outline-primary socialBtn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

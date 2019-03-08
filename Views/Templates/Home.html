@@ -1,0 +1,33 @@
+$def with (posts)
+
+$if session['user'] == None:
+    <h1> Welcome to Social Network</h1>
+$else:
+        <div id="posts" style="width: 20rem;">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    What've you been up to $session['user']['name']?
+                </div>
+                <div class="card-body">
+                    <form id="post-form">
+                        <div class="form-group">
+                            <textarea style="width: 15rem;" class="form-control" id="create-post" name="postbody" placeholder="Write your post here..."></textarea>
+                            <button type="submit" class="btn btn-primary">Post <i class="far fa-paper-plane"></i></button>
+
+                        </div>
+                    </form>
+                 
+                </div>
+            </div>
+            $for post in posts:       
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title"> <img src="#"/> $session['user']['username']</div>
+                        <p class="card-text"> $post['body']</p>
+                        <a href="#" class="btn btn-outline-danger socialBtn"><i class="far fa-thumbs-up"></i></a>
+                        <a href="#" class="btn btn-outline-secondary socialBtn"><i class="far fa-comment-dots"></i></a>
+                        <a href="#" class="btn btn-outline-primary socialBtn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+            </div>
+        </div>
+        

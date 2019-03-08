@@ -1,0 +1,41 @@
+$def with (info)
+
+<div class="main-container">
+        <div class="profile">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="avatar-mid">
+
+                    </div>
+                    <p class="lead">$session['user']['username']</p>
+                </div>
+            </div>
+            <div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/settings"> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title"> <img src="#" />Basic Info</div>
+                        <h6 class="card-subtitle mb-2 text-muted">Name</h6>
+                        <p class="card-text"> $session['user']['name']</p>
+                        <h6 class="card-subtitle mb-2 text-muted">About</h6>
+                        <p class="card-text"> $info['about']</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+<div class="main-container">
+        <div class="profile">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="avatar-mid">
+
+                    </div>
+                    <p class="lead">$session['user']['username']</p>
+                </div>
+            </div>
+            <div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/settings"> Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title"> <img src="#" />Basic Info</div>
+                        <form id="settings-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" name="name" class="form-control form-control-sm" type="text" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="about">About</label>
+                                <textarea id="about" name="about" class="form-control" placeholder="About">
+                            </div>
+                            <div class="form-group">
+                                <label for="hobbies" >Hobbies</label>
+                                <input id="hobbies" name="hobbies" class="form-control form-control-sm" type="text" placeholder="Hobbies (ex: Games, Movies)">
+                            </div>
+                            <button id="submit" class="btn btn-raised btn-info" type="submit">Save</button>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
